@@ -21,6 +21,9 @@ dependencies {
     runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+    implementation group: 'com.squareup.retrofit2', name: 'retrofit', version: '2.9.0'
+    implementation group: 'com.squareup.retrofit2', name: 'converter-gson', version: '2.9.0'
+    //implementation 'org.springframework.boot:spring-boot-starter-security'
 }
 
 tasks.named('test') {

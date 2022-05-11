@@ -2,7 +2,6 @@ package com.geteatwithme.geteatwithme.UserProfileMapper;
 
 import com.geteatwithme.geteatwithme.model.UserProfile;
 import org.apache.ibatis.annotations.*;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 import java.util.List;
 
@@ -22,4 +21,12 @@ public interface UserProfileMapper {
 
     @Delete("DELETE FROM userprofile WHERE id=#{id}")
     int deleteUserProfile(@Param("id") String id);
+
+    @Select("SELECT COUNT(*) FROM userprofile WHERE id=#{id}")
+    int checkUsername(@Param("id") String id);
+
+    @Select("SELECT COUNT(*) FROM userprofile WHERE nickname=#{nickname}")
+    int checkUserNickname(@Param("nickname") String nickname);
+    @Select("SELECT COUNT(*) FROM userprofile WHERE id=#{id} AND password=#{password}")
+    int checkLogin(@Param("id")String id, @Param("password")String password);
 }
