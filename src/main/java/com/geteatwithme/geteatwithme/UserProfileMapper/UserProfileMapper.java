@@ -13,10 +13,10 @@ public interface UserProfileMapper {
     @Select("SELECT * FROM userprofile")
     List<UserProfile> getUserProfileList();
 
-    @Insert("INSERT INTO userprofile VALUES(#{id}, #{name}, #{gender}, #{password}, #{age}, #{nickname})")
+    @Insert("INSERT INTO userprofile VALUES(#{id}, #{name}, #{gender}, PASSWORD(#{password}), #{age}, #{nickname})")
     int insertUserProfile(@Param("id") String id, @Param("name") String name, @Param("gender") int gender,@Param("password") String password, @Param("age") int age, @Param("nickname") String nickname);
 
-    @Update("UPDATE userprofile SET name=#{name}, gender=#{gender}, password=#{password} age=#{age}, nickname=#{nickname} WHERE id= #{id}")
+    @Update("UPDATE userprofile SET name=#{name}, gender=#{gender}, password=PASSWORD(#{password}), age=#{age}, nickname=#{nickname} WHERE id= #{id}")
     int updateUserProfile(@Param("id") String id, @Param("name") String name, @Param("gender") int gender,@Param("password") String password, @Param("age") int age, @Param("nickname") String nickname);
 
     @Delete("DELETE FROM userprofile WHERE id=#{id}")
@@ -27,6 +27,6 @@ public interface UserProfileMapper {
 
     @Select("SELECT COUNT(*) FROM userprofile WHERE nickname=#{nickname}")
     int checkUserNickname(@Param("nickname") String nickname);
-    @Select("SELECT COUNT(*) FROM userprofile WHERE id=#{id} AND password=#{password}")
+    @Select("SELECT COUNT(*) FROM userprofile WHERE id=#{id} AND password=PASSWORD(#{password})")
     int checkLogin(@Param("id")String id, @Param("password")String password);
 }
