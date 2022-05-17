@@ -33,13 +33,13 @@ public interface UserProfileMapper {
     int checkLogin(@Param("id")String id, @Param("password")String password);
     @Select("SELECT * FROM post WHERE id=#{id}")
     List<Post> GetUserIdPost(@Param("id")String id);
-    @Insert("INSERT INTO post VALUES(#{id}, #{restaurant},#{meeting_place},#{category},#{max_people}, #{cur_people}, #{meeting_time}, #{contents})")
-    void insertUserPost(@Param("id")String id, @Param("restaurant")String restaurant, @Param("meeting_place")String meeting_place, @Param("category")int category, @Param("max_people")int max_people, @Param("cur_people")int cur_people, @Param("meeting_time")String meeting_time, @Param("contents")String contents);
+    @Insert("INSERT INTO post VALUES(#{id}, #{restaurant},#{meeting_place},#{category},#{max_people}, #{cur_people}, #{meeting_date}, #{meeting_time}, #{contents}, #{Longtitude}, #{Latitude})")
+    void insertUserPost(@Param("id")String id, @Param("restaurant")String restaurant,@Param("meeting_date")String meeting_date, @Param("meeting_place")String meeting_place, @Param("category")int category, @Param("max_people")int max_people, @Param("cur_people")int cur_people, @Param("meeting_time")String meeting_time, @Param("contents")String contents, @Param("Longtitude")Double Longtitude, @Param("Latitude")Double Latitude);
 
-    @Select("SELECT * FROM post")
+    @Select("SELECT * FROM post JOIN userprofile WHERE userprofile.id=post.id")
     LinkedList<Post> GetAllPost();
 
-    @Select("SELECT * FROM post WHERE category=#{category}")
+    @Select("SELECT * FROM post JOIN userprofile WHERE category=#{category} AND userprofile.id=post.id")
     LinkedList<Post>GetCategoryPost(@Param("category")int category);
 }
 

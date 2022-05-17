@@ -53,8 +53,9 @@ public class UserProfileController {
     public LinkedList<Post> getPostList(){return mapper.GetAllPost();}
     @PutMapping("/post/{id}")
     public void putUserPost(@PathVariable("id")String id, @RequestParam("source") Post post){
-        mapper.insertUserPost(id,post.getRestaurant(),post.getMeeting_place(),post.getCategory(),post.getMax_people(),post.getCur_people(),post.getMeeting_time(),post.getContents());
+        mapper.insertUserPost(id,post.getRestaurant(),post.getMeeting_time(),post.getMeeting_place(),post.getCategory(),post.getMax_people(),post.getCur_people(),post.getMeeting_time(),post.getContents(),post.getLongitude(),post.getLatitude());
     }
     @GetMapping("/post/{category}/alllist")
     public LinkedList<Post>getCategoryPostList(@PathVariable("category")int category){return mapper.GetCategoryPost(category);}
+
 }

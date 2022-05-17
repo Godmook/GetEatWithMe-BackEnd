@@ -3,12 +3,25 @@ package com.geteatwithme.geteatwithme.model;
 public class Post {
     String id;
     String restaurant;
+    double longitude;
+    double latitude;
     String meeting_place;
     int category;
     int max_people;
     int cur_people;
+    int gender;
+    String meeting_date;
     String meeting_time;
     String contents;
+    int age;
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
 
     public String getId() {
         return id;
@@ -26,9 +39,19 @@ public class Post {
         this.restaurant = restaurant;
     }
 
-    public String getMeeting_place() {
-        return meeting_place;
-    }
+    public double getLongitude() {return longitude; }
+
+    public void setLongitude(double longitude){ this.longitude = longitude;}
+
+    public double getLatitude() { return latitude; }
+
+    public void setLatitude(double latitude) { this.latitude = latitude; }
+
+    public String getMeeting_date() { return meeting_date; }
+
+    public void setMeeting_date(String meeting_date) { this.meeting_date = meeting_date;}
+
+    public String getMeeting_place() {return meeting_place;}
 
     public void setMeeting_place(String meeting_place) {
         this.meeting_place = meeting_place;
@@ -73,4 +96,8 @@ public class Post {
     public void setContents(String contents) {
         this.contents = contents;
     }
+
+    public int getGender(){ return gender;}
+
+    public void setGender(int gender){ this.gender = gender;}
 }
