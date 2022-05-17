@@ -3,7 +3,7 @@ import com.geteatwithme.geteatwithme.UserProfileMapper.UserProfileMapper;
 import com.geteatwithme.geteatwithme.model.Post;
 import com.geteatwithme.geteatwithme.model.UserProfile;
 import org.springframework.web.bind.annotation.*;
-import javax.annotation.PostConstruct;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -52,8 +52,29 @@ public class UserProfileController {
     @GetMapping("/post/all")
     public LinkedList<Post> getPostList(){return mapper.GetAllPost();}
     @PutMapping("/post/{id}")
-    public void putUserPost(@PathVariable("id")String id, @RequestParam("source") Post post){
-        mapper.insertUserPost(id,post.getRestaurant(),post.getMeeting_time(),post.getMeeting_place(),post.getCategory(),post.getMax_people(),post.getCur_people(),post.getMeeting_time(),post.getContents(),post.getLongitude(),post.getLatitude());
+    public void putUserPost(@PathVariable("id")String id,
+                            @RequestParam("restaurant") String restaurant,
+                            @RequestParam("meeting_place")String meeting_place,
+                            @RequestParam("category")int category,
+                            @RequestParam("max_people")int max_people,
+                            @RequestParam("cur_people")int cur_people,
+                            @RequestParam("meeting_date")String meeting_date,
+                            @RequestParam("meeting_time")String meeting_time,
+                            @RequestParam("contents")String contents,
+                            @RequestParam("Longtitude")Double Longtitude,
+                            @RequestParam("Latitude")Double Latitude
+                            ){
+        mapper.insertUserPost(id,
+                                restaurant,
+                                meeting_place,
+                                category,
+                                max_people,
+                                cur_people,
+                                meeting_date,
+                                meeting_time,
+                                contents,
+                                Longtitude,
+                                Latitude);
     }
     @GetMapping("/post/{category}/alllist")
     public LinkedList<Post>getCategoryPostList(@PathVariable("category")int category){return mapper.GetCategoryPost(category);}
