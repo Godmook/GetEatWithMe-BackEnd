@@ -52,7 +52,7 @@ public class UserProfileController {
     @GetMapping("/post/all")
     public LinkedList<Post> getPostList(){return mapper.GetAllPost();}
     @PutMapping("/post/{id}")
-    public void putUserPost(@PathVariable("id")String id,
+    public int putUserPost(@PathVariable("id")String id,
                             @RequestParam("restaurant") String restaurant,
                             @RequestParam("meeting_place")String meeting_place,
                             @RequestParam("category")int category,
@@ -64,7 +64,7 @@ public class UserProfileController {
                             @RequestParam("Longtitude")Double Longtitude,
                             @RequestParam("Latitude")Double Latitude
                             ){
-        mapper.insertUserPost(id,
+        return mapper.insertUserPost(id,
                                 restaurant,
                                 meeting_place,
                                 category,
