@@ -78,5 +78,6 @@ public class UserProfileController {
     }
     @GetMapping("/post/{category}/alllist")
     public LinkedList<Post>getCategoryPostList(@PathVariable("category")int category){return mapper.GetCategoryPost(category);}
-
+    @GetMapping("/post/search/{name}")
+    public LinkedList<Post>getSearchingPostList(@PathVariable("name")String name){return mapper.GetSearchingPost(name);}
 }
