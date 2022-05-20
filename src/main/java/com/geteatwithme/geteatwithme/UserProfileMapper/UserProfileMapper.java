@@ -31,7 +31,7 @@ public interface UserProfileMapper {
     int checkUserNickname(@Param("nickname") String nickname);
     @Select("SELECT COUNT(*) FROM userprofile WHERE id=#{id} AND password=PASSWORD(#{password})")
     int checkLogin(@Param("id")String id, @Param("password")String password);
-    @Select("SELECT * FROM post WHERE id=#{id}")
+    @Select("SELECT * FROM post JOIN userprofile WHERE post.id=#{id} AND userprofile.id=post.id")
     List<Post> GetUserIdPost(@Param("id")String id);
     @Insert("INSERT INTO post VALUES(#{id}, #{restaurant},#{meeting_place},#{category},#{max_people}, #{cur_people}, #{meeting_date}, #{meeting_time}, #{contents}, #{Longtitude}, #{Latitude},(SELECT COUNT(*) FROM post ALIAS_FOR_SUBQUERY JOIN userprofile WHERE post.id=userprofile.id))")
     int insertUserPost(@Param("id")String id, @Param("restaurant")String restaurant, @Param("meeting_place")String meeting_place,@Param("category")int category, @Param("max_people")int max_people, @Param("cur_people")int cur_people, @Param("meeting_date")String meeting_date, @Param("meeting_time")String meeting_time, @Param("contents")String contents, @Param("Longtitude")Double Longtitude, @Param("Latitude")Double Latitude);
