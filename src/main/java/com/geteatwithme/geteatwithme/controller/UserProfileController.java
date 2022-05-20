@@ -48,9 +48,10 @@ public class UserProfileController {
         return mapper.checkLogin(id,password);
     }
     @GetMapping("/post/{id}/all")
-    public List<Post> getUserIdPostList(@PathVariable("id")String id){return mapper.GetUserIdPost(id);}
+    public LinkedList<Post> getUserIdPostList(@PathVariable("id")String id){return mapper.GetUserIdPost(id);}
     @GetMapping("/post/all")
     public LinkedList<Post> getPostList(){return mapper.GetAllPost();}
+   //수정
     @PutMapping("/post/{id}")
     public int putUserPost(@PathVariable("id")String id,
                             @RequestParam("restaurant") String restaurant,
@@ -62,7 +63,11 @@ public class UserProfileController {
                             @RequestParam("meeting_time")String meeting_time,
                             @RequestParam("contents")String contents,
                             @RequestParam("Longtitude")Double Longtitude,
-                            @RequestParam("Latitude")Double Latitude
+                            @RequestParam("Latitude")Double Latitude,
+                            @RequestParam("meet_x")Double meet_x,
+                            @RequestParam("meet_y")Double meet_y,
+                            @RequestParam("restaurant_id") int restaurant_id,
+                            @RequestParam("visible")int visible
                             ){
         return mapper.insertUserPost(id,
                                 restaurant,
@@ -74,8 +79,14 @@ public class UserProfileController {
                                 meeting_time,
                                 contents,
                                 Longtitude,
-                                Latitude);
+                                Latitude,
+                                meet_x,
+                                meet_y,
+                                restaurant_id,
+                                visible);
     }
+    @GetMapping("/post/find_by_post_id/{id}")
+    public Post getPostByPost_id(@PathVariable("id")String id){return mapper.GetPost_idPost(id);}
     @GetMapping("/post/{category}/alllist")
     public LinkedList<Post>getCategoryPostList(@PathVariable("category")int category){return mapper.GetCategoryPost(category);}
     @GetMapping("/post/search/{name}")

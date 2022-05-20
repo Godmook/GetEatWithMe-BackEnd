@@ -14,6 +14,42 @@ public class Post {
     String meeting_time;
     String contents;
     int age;
+    double meet_x;
+    double meet_y;
+    int restaurant_id;
+    int visible;
+
+    public double getMeet_x() {
+        return meet_x;
+    }
+
+    public void setMeet_x(double meet_x) {
+        this.meet_x = meet_x;
+    }
+
+    public double getMeet_y() {
+        return meet_y;
+    }
+
+    public void setMeet_y(double meet_y) {
+        this.meet_y = meet_y;
+    }
+
+    public int getRestaurant_id() {
+        return restaurant_id;
+    }
+
+    public void setRestaurant_id(int restaurant_id) {
+        this.restaurant_id = restaurant_id;
+    }
+
+    public int getVisible() {
+        return visible;
+    }
+
+    public void setVisible(int visible) {
+        this.visible = visible;
+    }
 
     public int getAge() {
         return age;
