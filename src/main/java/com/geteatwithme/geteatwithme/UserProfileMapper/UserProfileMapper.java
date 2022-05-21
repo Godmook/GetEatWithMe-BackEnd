@@ -20,7 +20,8 @@ public interface UserProfileMapper {
 
     @Update("UPDATE userprofile SET password=PASSWORD(#{password}), age=#{age}, nickname=#{nickname} WHERE id= #{id}")
     int updateUserProfile(@Param("id") String id, @Param("password") String password, @Param("age") int age, @Param("nickname") String nickname);
-
+    @Update("UPDATE userprofile SET age=#{age}, nickname=#{nickname} WHERE id= #{id}")
+    int updateUserProfileWithoutPw(@Param("id")String id,@Param("age")int age,@Param("nickname")String nickname);
     @Delete("DELETE FROM userprofile WHERE id=#{id}")
     int deleteUserProfile(@Param("id") String id);
 

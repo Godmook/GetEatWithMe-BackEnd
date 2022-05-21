@@ -35,7 +35,8 @@ public class UserProfileController {
         mapper.insertUserProfile(id, name, gender, password, age, nickname,token_id);
         return 1;
     }
-
+    @PostMapping("/update/user/withoutpw/{id}")
+    public int updateUserProfiileWithoutPw(@PathVariable("id")String id,@RequestParam("age")int age,@RequestParam("nickname")String nickname){return mapper.updateUserProfileWithoutPw(id,age,nickname);}
     @PostMapping("/update/user/{id}")
     public int postUserProfile(@PathVariable("id") String id,  @RequestParam("password") String password,@RequestParam("age") int age , @RequestParam("nickname") String nickname) {
         return mapper.updateUserProfile(id, password, age, nickname);
@@ -94,4 +95,5 @@ public class UserProfileController {
     public LinkedList<Post>getSearchingPostList(@PathVariable("name")String name){return mapper.GetSearchingPost(name);}
     @PostMapping("/user/token/{id}/{token_id}")
     public int UpdateToken(@PathVariable("id")String id, @PathVariable("token_id")String token){return mapper.UpdateToken(id,token);}
+
 }
