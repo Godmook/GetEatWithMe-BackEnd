@@ -3,6 +3,7 @@ import com.geteatwithme.geteatwithme.UserProfileMapper.UserProfileMapper;
 import com.geteatwithme.geteatwithme.model.Post;
 import com.geteatwithme.geteatwithme.model.UserProfile;
 import org.springframework.web.bind.annotation.*;
+import retrofit2.http.Path;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -30,14 +31,14 @@ public class UserProfileController {
         return mapper.getUserProfileList();
     }
     @PutMapping("/user/{id}")
-    public int putUserProfile(@PathVariable("id") String id, @RequestParam("name") String name, @RequestParam("gender") int gender, @RequestParam("password") String password,@RequestParam("age") int age , @RequestParam("nickname") String nickname, @RequestParam("grade") Double grade) {
-        mapper.insertUserProfile(id, name, gender, password, age, nickname,grade);
+    public int putUserProfile(@PathVariable("id") String id, @RequestParam("name") String name, @RequestParam("gender") int gender, @RequestParam("password") String password,@RequestParam("age") int age , @RequestParam("nickname") String nickname,@RequestParam("token_id")String token_id) {
+        mapper.insertUserProfile(id, name, gender, password, age, nickname,token_id);
         return 1;
     }
 
-    @PostMapping("/user/{id}")
-    public void postUserProfile(@PathVariable("id") String id, @RequestParam("name") String name, @RequestParam("gender") int gender, @RequestParam("password") String password,@RequestParam("age") int age , @RequestParam("nickname") String nickname) {
-        mapper.updateUserProfile(id, name, gender, password, age, nickname);
+    @PostMapping("/update/user/{id}")
+    public int postUserProfile(@PathVariable("id") String id,  @RequestParam("password") String password,@RequestParam("age") int age , @RequestParam("nickname") String nickname) {
+        return mapper.updateUserProfile(id, password, age, nickname);
     }
     @DeleteMapping("/user/{id}")
     public void deleteUserProfile(@PathVariable("id") String id) {
@@ -91,4 +92,6 @@ public class UserProfileController {
     public LinkedList<Post>getCategoryPostList(@PathVariable("category")int category){return mapper.GetCategoryPost(category);}
     @GetMapping("/post/search/{name}")
     public LinkedList<Post>getSearchingPostList(@PathVariable("name")String name){return mapper.GetSearchingPost(name);}
+    @PostMapping("/user/token/{id}/{token_id}")
+    public int UpdateToken(@PathVariable("id")String id, @PathVariable("token_id")String token){return mapper.UpdateToken(id,token);}
 }
