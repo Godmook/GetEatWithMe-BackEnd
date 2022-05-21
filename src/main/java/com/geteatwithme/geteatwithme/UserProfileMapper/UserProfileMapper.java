@@ -15,11 +15,11 @@ public interface UserProfileMapper {
     @Select("SELECT * FROM userprofile")
     List<UserProfile> getUserProfileList();
 
-    @Insert("INSERT INTO userprofile VALUES(#{id}, #{name}, #{gender}, PASSWORD(#{password}), #{age}, #{nickname}, #{grade})")
-    int insertUserProfile(@Param("id") String id, @Param("name") String name, @Param("gender") int gender,@Param("password") String password, @Param("age") int age, @Param("nickname") String nickname, Double grade);
+    @Insert("INSERT INTO userprofile VALUES(#{id}, #{name}, #{gender}, PASSWORD(#{password}), #{age}, #{nickname},36.5,#{token_id})")
+    int insertUserProfile(@Param("id") String id, @Param("name") String name, @Param("gender") int gender,@Param("password") String password, @Param("age") int age, @Param("nickname") String nickname,@Param("token_id")String token_id);
 
-    @Update("UPDATE userprofile SET name=#{name}, gender=#{gender}, password=PASSWORD(#{password}), age=#{age}, nickname=#{nickname} WHERE id= #{id}")
-    int updateUserProfile(@Param("id") String id, @Param("name") String name, @Param("gender") int gender,@Param("password") String password, @Param("age") int age, @Param("nickname") String nickname);
+    @Update("UPDATE userprofile SET password=PASSWORD(#{password}), age=#{age}, nickname=#{nickname} WHERE id= #{id}")
+    int updateUserProfile(@Param("id") String id, @Param("password") String password, @Param("age") int age, @Param("nickname") String nickname);
 
     @Delete("DELETE FROM userprofile WHERE id=#{id}")
     int deleteUserProfile(@Param("id") String id);
@@ -46,5 +46,7 @@ public interface UserProfileMapper {
     LinkedList<Post>GetSearchingPost(@Param("name")String name);
     @Select("SELECT * FROM post JOIN userprofile WHERE userprofile.id=post.id AND post_id=#{id}")
     Post GetPost_idPost(@Param("id")String id);
+    @Update("UPDATE userprofile SET token_id=#{token_id} WHERE id=#{id}")
+    int UpdateToken(@Param("id")String id,@Param("token_id")String token_id);
 }
 

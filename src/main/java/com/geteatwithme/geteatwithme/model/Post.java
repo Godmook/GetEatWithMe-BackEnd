@@ -18,6 +18,15 @@ public class Post {
     double meet_y;
     int restaurant_id;
     int visible;
+    int post_id;
+
+    public int getPost_id() {
+        return post_id;
+    }
+
+    public void setPost_id(int post_id) {
+        this.post_id = post_id;
+    }
 
     public double getMeet_x() {
         return meet_x;

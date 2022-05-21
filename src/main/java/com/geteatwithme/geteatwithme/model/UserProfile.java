@@ -7,14 +7,24 @@ public class UserProfile {
     private String password; //비밀번호
     private int age; //나이
     private String nickname;//닉네임
+    private String token_id;
 
-    public UserProfile(String id, String name,int gender, String password, int age, String nickname) {
+    public String getToken_id() {
+        return token_id;
+    }
+
+    public void setToken_id(String token_id) {
+        this.token_id = token_id;
+    }
+
+    public UserProfile(String id, String name, int gender, String password, int age, String nickname, String token_id) {
         this.id = id;
         this.name = name;
         this.gender = gender;
         this.password = password;
         this.age = age;
         this.nickname = nickname;
+        this.token_id = token_id;
     }
 
     public String getId() {
