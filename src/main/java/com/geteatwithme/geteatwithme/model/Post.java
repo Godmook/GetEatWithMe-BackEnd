@@ -19,6 +19,33 @@ public class Post {
     int restaurant_id;
     int visible;
     int post_id;
+    int sec;
+    int post_visible;
+    String nickname;
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public int getSec() {
+        return sec;
+    }
+
+    public void setSec(int sec) {
+        this.sec = sec;
+    }
+
+    public int getPost_visible() {
+        return post_visible;
+    }
+
+    public void setPost_visible(int post_visible) {
+        this.post_visible = post_visible;
+    }
 
     public int getPost_id() {
         return post_id;
