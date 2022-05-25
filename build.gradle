@@ -26,7 +26,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-websocket'
     //implementation 'org.springframework.boot:spring-boot-starter-security'
 // https://mvnrepository.com/artifact/com.google.firebase/firebase-admin
-    implementation 'com.google.firebase:firebase-admin:6.5.0'
+    implementation 'com.google.firebase:firebase-admin:6.7.0'
     // https://mvnrepository.com/artifact/org.json/json
     implementation group: 'org.json', name: 'json', version: '20160810'
     // https://mvnrepository.com/artifact/org.slf4j/slf4j-api

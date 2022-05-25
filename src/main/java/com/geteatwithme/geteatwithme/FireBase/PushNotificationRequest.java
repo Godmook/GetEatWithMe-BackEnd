@@ -18,6 +18,27 @@ public class PushNotificationRequest {
 
     private String topic;
     private String token;
+    private String click_action;
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public String getClick_action() {
+        return click_action;
+    }
+
+    public void setClick_action(String click_action) {
+        this.click_action = click_action;
+    }
 
     public String getTitle() {
         return title;
