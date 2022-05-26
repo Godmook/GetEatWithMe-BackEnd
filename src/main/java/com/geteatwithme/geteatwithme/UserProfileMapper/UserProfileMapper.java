@@ -57,5 +57,9 @@ public interface UserProfileMapper {
     LinkedList<Alarm>GetUserAlarm(@Param("id")String id);
     @Update("UPDATE useralarm SET view=1 WHERE alarm_id=#{id}")
     int UpdateView(@Param("id")int id);
+    @Delete("DELETE FROM post WHERE post_id=#{post_id}")
+    void DeletePost(@Param("post_id")int post_id);
+    @Update("UPDATE post SET cur_people=IF(max_people = cur_people,max_people, cur_people+1) WHERE post_id=#{post_id}")
+    void UpdateCurPeoplePost(@Param("post_id")int post_id);
 }
 
