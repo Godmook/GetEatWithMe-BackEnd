@@ -71,7 +71,6 @@ public class UserProfileController {
                             @RequestParam("meet_y")Double meet_y,
                             @RequestParam("restaurant_id") int restaurant_id,
                             @RequestParam("visible")int visible,
-                            @RequestParam("post_visible")int post_visible,
                             @RequestParam("sec")int sec
                             ){
         return mapper.insertUserPost(id,
@@ -89,7 +88,6 @@ public class UserProfileController {
                                 meet_y,
                                 restaurant_id,
                                 visible,
-                                post_visible,
                                 sec
         );
     }
@@ -105,4 +103,6 @@ public class UserProfileController {
     public int InsertAlarm(@PathVariable("id")String id,@RequestParam("request")int request,@RequestParam("opposite_id")String opposite_id,@RequestParam("post_id")int post_id,@RequestParam("view")int view,@RequestParam("nickname")String nickname,@RequestParam("opposite_nickname")String opposite_nickname){return mapper.InsertAlarm(id,request,opposite_id,post_id,view,nickname,opposite_nickname);}
     @GetMapping("/getalarm/{id}")
     public LinkedList<Alarm>GetUserAlarm(@PathVariable("id")String id){return mapper.GetUserAlarm(id);}
+    @PostMapping("/update/alarm/{id}")
+    public int UpdateViewAlarm(@PathVariable("id")int id){return mapper.UpdateView(id);}
 }
