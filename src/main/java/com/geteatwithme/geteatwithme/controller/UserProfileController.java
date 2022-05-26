@@ -105,4 +105,8 @@ public class UserProfileController {
     public LinkedList<Alarm>GetUserAlarm(@PathVariable("id")String id){return mapper.GetUserAlarm(id);}
     @PostMapping("/update/alarm/{id}")
     public int UpdateViewAlarm(@PathVariable("id")int id){return mapper.UpdateView(id);}
+    @PostMapping("/delete/post/{post_id}")
+    public void deletePost(@PathVariable("post_id")int post_id){mapper.DeletePost(post_id);}
+    @PostMapping("/update/post/curpeople/{post_id}")
+    public void updatePostCurpeople(@PathVariable("post_id")int post_id){mapper.UpdateCurPeoplePost(post_id);}
 }
