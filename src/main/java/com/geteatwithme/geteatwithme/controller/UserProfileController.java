@@ -100,7 +100,8 @@ public class UserProfileController {
     @PostMapping("/user/token/{id}/{token_id}")
     public int UpdateToken(@PathVariable("id")String id, @PathVariable("token_id")String token){return mapper.UpdateToken(id,token);}
     @PutMapping("/alarm/{id}")
-    public int InsertAlarm(@PathVariable("id")String id,@RequestParam("request")int request,@RequestParam("opposite_id")String opposite_id,@RequestParam("post_id")int post_id,@RequestParam("view")int view,@RequestParam("nickname")String nickname,@RequestParam("opposite_nickname")String opposite_nickname){return mapper.InsertAlarm(id,request,opposite_id,post_id,view,nickname,opposite_nickname);}
+    public int InsertAlarm(@PathVariable("id")String id,@RequestParam("request")int request,@RequestParam("opposite_id")String opposite_id,@RequestParam("post_id")int post_id,@RequestParam("view")int view,@RequestParam("nickname")String nickname,@RequestParam("opposite_nickname")String opposite_nickname,@RequestParam("id_token_id")String id_token_id,@RequestParam("opposite_token_id")String opposite_token_id,@RequestParam("restaurant")String restaurant,@RequestParam("date")String date)
+    {return mapper.InsertAlarm(id,request,opposite_id,post_id,view,nickname,opposite_nickname,id_token_id,opposite_token_id,restaurant,date);}
     @GetMapping("/getalarm/{id}")
     public LinkedList<Alarm>GetUserAlarm(@PathVariable("id")String id){return mapper.GetUserAlarm(id);}
     @PostMapping("/update/alarm/{id}")
@@ -109,4 +110,24 @@ public class UserProfileController {
     public void deletePost(@PathVariable("post_id")int post_id){mapper.DeletePost(post_id);}
     @PostMapping("/update/post/curpeople/{post_id}")
     public void updatePostCurpeople(@PathVariable("post_id")int post_id){mapper.UpdateCurPeoplePost(post_id);}
+    @PostMapping("/update/post/data/{post_id}")
+    public int updatePostData(@PathVariable("post_id")int post_id,
+                              @RequestParam("restaurant")String restaurant,
+                              @RequestParam("meeting_place")String meeting_place,
+                              @RequestParam("category")int category,
+                              @RequestParam("max_people")int max_people,
+                              @RequestParam("cur_people")int cur_people,
+                              @RequestParam("meeting_date")String meeting_date,
+                              @RequestParam("meeting_time")String meeting_time,
+                              @RequestParam("contents")String contents,
+                              @RequestParam("Longtitude")Double Longtitude,
+                              @RequestParam("Latitude")Double Latitude,
+                              @RequestParam("meet_x")Double meet_x,
+                              @RequestParam("meet_y")Double meet_y,
+                              @RequestParam("restaurant_id")int restaurant_id,
+                              @RequestParam("visible")int visible,
+                              @RequestParam("sec")int sec)
+    {
+        return mapper.updatetUserPostdata(restaurant,meeting_place,category,max_people,cur_people,meeting_date,meeting_time,contents,Longtitude,Latitude,meet_x,meet_y,restaurant_id,visible,sec,post_id);
+    }
 }
