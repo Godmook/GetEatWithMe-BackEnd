@@ -130,4 +130,8 @@ public class UserProfileController {
     {
         return mapper.updatetUserPostdata(restaurant,meeting_place,category,max_people,cur_people,meeting_date,meeting_time,contents,Longtitude,Latitude,meet_x,meet_y,restaurant_id,visible,sec,post_id);
     }
+    @PostMapping("/update/visible/{post_id}")
+    public void updateVisible(@PathVariable("post_id")int post_id){
+        mapper.updateVisible(post_id);
+    }
 }
