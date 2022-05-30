@@ -32,7 +32,9 @@
    - AWS EC2(+탄력적 ip)사용
    - PUTTY 를 사용하여서 java 와 mariadb 설치
    - 프로젝트에서 jar 파일을 FileZilla 이용해서 배포 후 실행
-   - 배포시 ubuntu 를 통해 접속해야 하며 nohup java -jar "jar 파일 이름".jar& 로  실행해야 터미널을 종료해도 실행된다.
+   - 배포시 ubuntu 를 통해 접속해야 하며
+     ```nohup java -jar "jar 파일 이름".jar&```
+     로  실행해야 터미널을 종료해도 실행된다.
 
 ### 프로젝트 ERD
 
