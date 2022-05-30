@@ -38,6 +38,8 @@
 
 ### 프로젝트 ERD
 
+![image](https://user-images.githubusercontent.com/68294499/170973695-cc195329-b08f-4a57-b788-3f493184ee5f.png)
+
 ## 프로젝트 설치 방법
    - resources/application.properties 에서 해당하는 부분을 수정해야합니다.
      ```
