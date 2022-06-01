@@ -137,6 +137,12 @@ ENGINE=InnoDB
    3. UserController
       - **역할** : REST API 통신을 위한 Controller 들이 모여있습니다.
       - **관련 Object** : model Package(Alarm,Post,UserProfile)
+   4. UserMapper
+      - **역할** : MariaDB에서 SQL 문을 실행하기 위한 SQL 문들이 들어있습니다.
+   5. Firebase
+      - **역할** : Firebase Cloud Messaging 을 하기 위해서 필요한 정보들이 있습니다.
+   6. Model
+      - **역할** : JSON 객체로 바꾸기 위한 클래스들이 모여 있는 곳입니다.
 
 ## 버그
   -5월 30일(배포일 기준) 에서는 현재 버그는 없습니다.
