@@ -35,6 +35,9 @@
 ### 프로젝트 구성도
 ![asdf](https://user-images.githubusercontent.com/68294499/172062071-d9a1804c-3ec1-480a-bd0e-e16e7fb43c72.png)
 
+- **Client-Spring** : MariaDB에 있는 정보들이 필요할 때, Firebase 를 통한 FCM을 보내고 싶을 때 통신합니다.
+- **Spring-Firebase** : Spring 에 Push Message 를 보내라는 정보가 들어오면, Spring 은 가지고 있는 정보들을 Firebase 에 전송합니다. (일방적 통신)
+- **Client-Firebase** : Client 가 단체 채팅방을 사용할때에는 Firebase 의 Realtime Database 를 사용합니다. <br> Firebase 에서 Push Message 를 보낼 때는 Firebase 가 Client 의 token_id 로 Push Message 를 보냅니다.
 ### 프로젝트 ERD
 
 ![image](https://user-images.githubusercontent.com/68294499/170973695-cc195329-b08f-4a57-b788-3f493184ee5f.png)
