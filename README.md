@@ -1,13 +1,10 @@
 # 나랑 같이 먹을래...? (GetEatWithMe) -BackEnd
 
-## 프로젝트 구성 안내 
+### 제작 이유
 나랑 같이 먹을래...? 어플은 안드로이드 기반 어플리케이션입니다.<br>
 혼자 밥을 먹기 두려워 하는 사람들을 위해 같이 밥을 먹을 사람을 찾아주는 어플입니다.<br>
 같이 밥을 먹기 위한 게시물을 올리면 신청을 통해 채팅으로 연결해주는 프로그램입니다.<br>
 해당 Repository는 Backend 코드를 포함하고 있습니다. <br>
-
-### 제작 이유
-
 
 ### 기술 스택
 - Spring Framework
@@ -35,6 +32,8 @@
    - 배포시 ubuntu 를 통해 접속해야 하며
      ```nohup java -jar "jar 파일 이름".jar&```
      로  실행해야 터미널을 종료해도 실행된다.
+### 프로젝트 구성도
+![asdf](https://user-images.githubusercontent.com/68294499/172062071-d9a1804c-3ec1-480a-bd0e-e16e7fb43c72.png)
 
 ### 프로젝트 ERD
 
