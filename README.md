@@ -53,6 +53,12 @@
      spring.jpa.hibernate.ddl-auto=update
      spring.jpa.properties.hibernate.format_sql=true
       ```
+   > ⚠️ **비밀값은 코드에 직접 넣지 마세요.**
+   > - DB 비밀번호는 `application.properties`에 평문으로 적지 말고 환경변수로 주입합니다:
+   >   `DB_USERNAME`, `DB_PASSWORD` (예: `export DB_PASSWORD=...` 후 실행).
+   > - Firebase 서비스 계정 키(`src/main/resources/firebase-service-account.json`)는
+   >   `.gitignore`로 커밋에서 제외돼 있습니다. Firebase 콘솔에서 새 키를 발급받아
+   >   `firebase-service-account.json.example`를 참고해 같은 위치에 직접 배치하세요.
    - 프로젝트 상단에 있는 db파일의 테이블 정보를 데이터베이스에 추가해야합니다.
    - 각 데이터베이스의 INSERT 코드는 다음과 같습니다
    - useralarm
